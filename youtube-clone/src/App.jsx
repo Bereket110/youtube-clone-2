@@ -1,11 +1,12 @@
 import { useState } from "react";
-
+import NavbarTop from "./components/NavbarTop";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
-      <h1>Hello world</h1>
+      <NavbarTop />
     </>
   );
 }
