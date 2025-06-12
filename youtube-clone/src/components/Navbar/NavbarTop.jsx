@@ -3,12 +3,12 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { logo } from "../utils/constants";
+import { logo } from "../../utils/constants";
 function NavbarTop() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="#">
           <img src={logo} alt="logo" height={45} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
