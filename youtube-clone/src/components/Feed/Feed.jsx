@@ -1,10 +1,18 @@
 // import Stack from "@mui/material/Stack";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import Sidebar from "../Sidebar/Sidebar";
+import { fetchFromAPI } from "../../utils/FetchFromAPI";
+import Videos from "../Videos/Videos";
 const Feed = () => {
-  const [videos, setVideos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("New");
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+      .then((data) => setVideos(data.items))
+      .catch((error) => console.error("Error fetching videos:", error));
+  }, [selectedCategory]);
+  console.log(videos);
   return (
     <Stack
       sx={{
@@ -29,9 +37,7 @@ const Feed = () => {
         >
           {selectedCategory} <span style={{ color: "#F31503" }}>videos</span>
         </Typography>
-        <Typography sx={{ color: "white" }}>
-          The feed videos are here
-        </Typography>
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );
