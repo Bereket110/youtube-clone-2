@@ -1,15 +1,22 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavbarTop from "./components/Navbar/NavbarTop";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Feed from "./components/Feed/Feed";
+import { Box } from "@mui/material";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <NavbarTop />
-      <Sidebar />
-    </>
+      <Box sx={{ backgroundColor: "#000" }}>
+        <Routes>
+          <Route path="/" exact element={<Feed />} />
+          <Route path="/feed" element={<Feed />} />
+        </Routes>
+      </Box>
+    </BrowserRouter>
   );
 }
 
