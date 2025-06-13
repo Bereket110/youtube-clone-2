@@ -5,6 +5,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Feed from "./components/Feed/Feed";
 import { Box } from "@mui/material";
+import VideoDetail from "./components/Videos/VideoDetail";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Box sx={{ backgroundColor: "#000" }}>
         <Routes>
           <Route path="/" exact element={<Feed />} />
-          <Route path="/feed" element={<Feed />} />
+          <Route path="/video/:id" element={<VideoDetail />} />
         </Routes>
       </Box>
     </BrowserRouter>
